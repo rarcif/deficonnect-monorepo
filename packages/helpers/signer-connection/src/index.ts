@@ -203,6 +203,10 @@ export class SignerConnection extends IJsonRpcConnection {
     });
 
     this.wc.on("session_update", (error, payload) => {
+      if (error) {
+        this.events.emit("error", error);
+        return;
+      }
       const { accounts, chainId } = payload.params[0];
       if (!this.accounts || (accounts && this.accounts !== accounts)) {
         this.accounts = accounts;

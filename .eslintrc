@@ -21,7 +21,12 @@
     "sort-keys": ["off"],
     "space-before-function-paren": ["off"],
     "indent": ["off"],
-    "no-console": ["error", { "allow": ["warn"] }]
+    "no-console": ["error", { "allow": ["warn"] }],
+    "no-return-await": ["warn"],
+    "no-useless-catch": ["warn"],
+    "no-useless-constructor": ["warn"],
+    "camelcase": ["off"],
+    "eqeqeq": ["warn"]
   },
   "env": {
     "browser": true,
@@ -35,8 +40,19 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
   },
-  "plugins": ["prettier", "@typescript-eslint"]
+  "plugins": ["prettier", "@typescript-eslint"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "no-undef": 0,
+      },
+    },
+  ]
 }

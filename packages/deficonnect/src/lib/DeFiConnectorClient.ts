@@ -1,8 +1,12 @@
-import Connector from '@deficonnect/core'
-import { IWalletConnectOptions, ISessionStorage, IConnector, ITransportLib } from '@deficonnect/types'
-import * as cryptoLib from '@deficonnect/iso-crypto'
-import SocketTransport from '@deficonnect/socket-transport'
-import { parseWalletConnectUri } from '@deficonnect/utils'
+import Connector from "@deficonnect/core";
+import { IWalletConnectOptions, ISessionStorage, IConnector, ITransportLib } from "@deficonnect/types";
+import * as cryptoLib from "@deficonnect/iso-crypto";
+import SocketTransport from "@deficonnect/socket-transport";
+import { parseWalletConnectUri } from "@deficonnect/utils";
+
+export interface DeFiTransportLib extends ITransportLib {
+  connected: boolean
+}
 
 interface DeFiExistsConnectorClientParams {
   connector: IConnector
@@ -12,10 +16,6 @@ export interface DeFiConnectorClientParams {
   connectorOpts?: IWalletConnectOptions
   sessionStorage?: ISessionStorage
   exists?: DeFiExistsConnectorClientParams
-}
-
-export interface DeFiTransportLib extends ITransportLib {
-  connected: boolean
 }
 
 export class DeFiConnectorClient {

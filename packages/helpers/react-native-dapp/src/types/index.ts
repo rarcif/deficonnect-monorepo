@@ -61,7 +61,6 @@ export type WalletConnectContextValue = WalletConnectOptions & {
   readonly walletServices: readonly WalletService[];
 };
 
-// eslint-disable-next-line functional/no-mixed-type
 export type RenderQrcodeModalProps = {
   readonly connectToWalletService: ConnectToWalletServiceCallback;
   readonly visible: boolean;

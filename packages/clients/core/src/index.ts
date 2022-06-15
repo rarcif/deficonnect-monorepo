@@ -1167,6 +1167,9 @@ class Connector implements IConnector {
     });
 
     this.on("call_request_sent", (error, payload) => {
+      if (error) {
+        // TODO: handle error
+      }
       const { request } = payload.params[0];
       if (isMobile() && this._signingMethods.includes(request.method)) {
         const mobileLinkUrl = getLocal(mobileLinkChoiceKey);

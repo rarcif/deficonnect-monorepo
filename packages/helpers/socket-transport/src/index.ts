@@ -15,7 +15,6 @@ import {
 
 import NetworkMonitor from "./network";
 
-// @ts-ignore
 const WS = typeof global.WebSocket !== "undefined" ? global.WebSocket : require("ws");
 
 // -- SocketTransport ------------------------------------------------------ //
@@ -154,7 +153,6 @@ class SocketTransport implements ITransportLib {
         this._nextSocket = null;
         this._socketCreate();
       }, 1000);
-      return;
     };
   }
 
